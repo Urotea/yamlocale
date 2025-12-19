@@ -51,7 +51,8 @@ export async function loadYamlFiles(
 function getNamespaceFromPath(relativeDir: string, filename: string): string {
   if (!relativeDir || relativeDir === ".") {
     // Root level file: use filename without extension
-    return basename(filename, ".yaml").replace(/\.yml$/, "");
+    const name = filename.replace(/\.(yaml|yml)$/, "");
+    return name;
   }
   // Subdirectory: use first directory name
   return relativeDir.split("/")[0];
@@ -66,7 +67,7 @@ function getPrefixFromPath(relativeDir: string, filename: string): string {
   if (!relativeDir || relativeDir === ".") {
     return "";
   }
-  return basename(filename, ".yaml").replace(/\.yml$/, "");
+  return filename.replace(/\.(yaml|yml)$/, "");
 }
 
 /**

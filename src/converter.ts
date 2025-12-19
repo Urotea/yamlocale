@@ -65,21 +65,23 @@ function convertToNested(
 
   for (const { key, value } of items) {
     const parts = key.split(".");
-    let current: NestedTranslations | string | undefined = result;
+    let current = result;
 
+    // Navigate/create nested structure
     for (let i = 0; i < parts.length - 1; i++) {
       const part = parts[i];
-      if (typeof current === "object" && current !== null) {
-        if (!(part in current)) {
-          current[part] = {};
-        }
-        current = current[part];
+      if (!(part in current)) {
+        current[part] = {};
+      }
+      // Type assertion: we know we just created or accessed an object
+      const next = current[part];
+      if (typeof next === "object" && next !== null) {
+        current = next as NestedTranslations;
       }
     }
 
-    if (typeof current === "object" && current !== null) {
-      current[parts[parts.length - 1]] = value;
-    }
+    // Set the final value
+    current[parts[parts.length - 1]] = value;
   }
 
   return result;
