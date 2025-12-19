@@ -5,3 +5,4 @@ dist
 bun.lockb
 package-lock.json
 test-data/output
+test-data/complex-output
