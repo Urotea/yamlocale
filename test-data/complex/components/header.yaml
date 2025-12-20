@@ -1,0 +1,12 @@
+header:
+  logo:
+    alt:
+      ja: ロゴ
+      en: Logo
+  nav:
+    home:
+      ja: ホーム
+      en: Home
+    about:
+      ja: について
+      en: About

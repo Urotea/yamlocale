@@ -1,0 +1,61 @@
+{
+  "name": "yamlocale",
+  "version": "0.1.0",
+  "description": "YAML to JSON i18n dictionary converter with CLI support",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "yamlocale": "./dist/cli/main.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Urotea",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Urotea/yamlocale.git"
+  },
+  "homepage": "https://github.com/Urotea/yamlocale#readme",
+  "bugs": {
+    "url": "https://github.com/Urotea/yamlocale/issues"
+  },
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "localization",
+    "translation",
+    "yaml",
+    "json",
+    "cli"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "bun test",
+    "gen": "bun run src/cli/main.ts test-data/src test-data/output --format flat",
+    "gen-complex": "bun run src/cli/main.ts test-data/complex test-data/complex-output --format flat",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome lint .",
+    "format": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.2",
+    "yaml": "^2.6.1"
+  }
+}
