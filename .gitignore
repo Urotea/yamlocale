@@ -2,8 +2,5 @@ node_modules
 dist
 *.log
 .DS_Store
-bun.lockb
-package-lock.json
 test-data/output
 test-data/complex-output
-test-integration.sh

@@ -16,7 +16,9 @@
   "bin": {
     "yamlocale": "./dist/cli/main.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "author": "Urotea",
   "license": "MIT",
   "repository": {
@@ -39,6 +41,8 @@
   "scripts": {
     "build": "tsup",
     "test": "bun test",
+    "gen": "bun run src/cli/main.ts test-data/src test-data/output --format flat",
+    "gen-complex": "bun run src/cli/main.ts test-data/complex test-data/complex-output --format flat",
     "typecheck": "tsc --noEmit",
     "lint": "biome lint .",
     "format": "biome check --write ."
